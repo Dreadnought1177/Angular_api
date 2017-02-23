@@ -1,0 +1,29 @@
+{
+  "name": "client",
+  "authors": [
+    "Chase Scheu <chasescheu@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "express": "^4.14.0",
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-ui-router": "latest",
+    "angular-bootstrap": "latest",
+    "ngstorage": "^0.3.11",
+    "angular-messages": "^1.6.2"
+  },
+  "resolutions": {
+    "angular": "1.6.1"
+  }
+}

@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Welcome, <a ng-click="meep.edit_profile(current_user.id)">{{meep.current_user.username}}</a></h1>
+    <div class="page-header">
+        <h2 ng-if="user_level == 'User'" style="padding-top: 15px;">All Users</h2>
+        <h2 ng-if="user_level == 'Admin'" style="padding-top: 15px;">Manage Users</h2>
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>Id#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>User Level</th>
+                    <th ng-if="user_level == 'Admin'">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in users">
+                    <td>{{x.id}}</td>
+                    <td><a ng-click="meep.message_user(x.id)">{{x.username}}</a></td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.created_at}}</td>
+                    <td>{{x.user_level}}</td>
+                    <td ng-if="user_level == 'Admin'"><a ng-click="meep.edit_user(x.id)">edit</a>/<a ng-click="meep.remove_user(x.id)">remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <button style = 'margin-left: 89%;' class = "btn btn-info" ng-click="meep.create_user()" ng-if="user_level == 'Admin'">Add new</button>
+    </div>
+</div>

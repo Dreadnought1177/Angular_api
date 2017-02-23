@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular Sample - Retail Application</title>
+
+        <!--  Angular Setup -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+
+
+
+        <!-- Application Setup -->
+        <script src="public/app.js"></script>
+
+        <!--  Controllers and Servics-->
+        <script src="public/components/app/controllers/RetailController.js"></script>
+        <script src="public/components/app/controllers/messageController.js"></script>
+        <script src="public/components/app/controllers/editUserController.js"></script>
+        <script src="public/components/app/services/tool.service.js"></script>
+        <script src="public/components/app/services/user.service.js"></script>
+        <script src="public/components/app/services/snippet.service.js"></script>
+        <script src="public/components/app/services/blog.service.js"></script>
+        <script src="public/components/app/services/post.service.js"></script>
+        <script src="public/components/app/services/comments.service.js"></script>
+
+    </head>
+    <body>
+        <!-- The dynamic templates will be served within this div -->
+        <ui-view></ui-view>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<div class="container">
+<div class="page-header" style="margin: 70px 0 20px;">
+    <h1 style="margin-bottom: 3%;">MESSAGE BOARD</h1>
+    <h2>{{ messanger.username }}</h2>
+    <p><strong>Registered at: </strong>{{ messanger.created_at | date:'MM/dd/yyyy' }}</p>
+    <p><strong>UserId: </strong>{{ messanger.id }}</p>
+    <p><strong>Email address: </strong>{{ messanger.email }}</p>
+    <p><strong>Description: </strong>{{ messanger.description }}</p>
+    <h3>Leave a message for {{messanger.username}}:</h3>
+    <form>
+
+        <br> <textarea style="height: 100px; width: 90%" type='text' ng-model='message.text' ></textarea> <br>
+    <input type="submit" value="Post" ng-click='meep.add_message()' ng-disabled="user.$invalid" class = "btn btn-success"
+           style="margin-left: 85%;" > <br>
+    </form>
+    <h1>The Wall</h1>
+    <h1>{{ commentErrors }}</h1>
+    <div ng-repeat="x in meep.messages | reverse">
+        <div ng-if="x.messanger == messanger.username">
+            <div>
+                <p style="display: inline;"><a ng-click="meep.find_user(x.author)">{{ x.author }}</a> wrote</p> <p style="margin-left: 65%;display: inline">{{ x.created_at | date:'MM/dd/yyyy @ h:mma' }}</p>
+                <textarea style="height: 80px; width: 90%;" >{{x.text}}</textarea>
+            </div>
+            <div ng-repeat='comment in x.comments' style=" margin-left: 4%;">
+                <div>
+                    <p style="display: inline"><a>{{ comment.author }}</a> wrote</p> <p style="float: right; margin-right: 10%; display: inline">{{ x.created_at | date:'MM/dd/yyyy @ h:mma' }}</p>
+                    <textarea style="height: 80px; width: 90%;">{{ comment.text }}</textarea>
+                </div>
+            </div>
+            <div style=" margin-left: 4%;">
+                <form ng-submit='meep.add_comment(x.id)' name="comment">
+                    <textarea placeholder="Add comment" type="text" ng-model="meep.comm.text" style="height: 80px; width: 90%; margin-top: 3%;"></textarea>
+                    <input type="submit" value="Post Comment" class = "btn btn-success" style="margin-left: 76%; margin-bottom: 5%;">
+                </form>
+            </div>
+            </div>
+    </div>
+</div>

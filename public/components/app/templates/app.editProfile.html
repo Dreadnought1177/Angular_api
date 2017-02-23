@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="page-header" style="margin: 70px 0 20px;">
+    <h1>Edit Profile: {{edited_user.username}}</h1><button style="margin-left: 80%;" class="btn btn-info" ng-click="change_page()">Return to Dashboard</button>
+        <div>
+            <div style = 'display: inline-block; vertical-align: top;'>
+             <form name="formEditProfile">
+              <fieldset>
+                <legend>Edit information</legend>
+                <label>Email:<br>
+                    <div ng-messages="formEditProfile.edited_user.email.$error" >
+                    <div ng-message="required" style="color: red">This Field is Required</div>
+                    <div ng-message="mail" style="color: red">Your Email Address is Invalid</div>
+                </div>
+                  <input type="email" ng-model="edited_user.email" required>
+                </label><br>
+                <label>Username:<br>
+                    <div ng-messages="formEditProfile.edited_user.username.$error">
+                         <div ng-message="required" style="color: red">This Field is Required</div>
+                    </div>
+                  <input type="text" name="last_name" ng-model="edited_user.username" required>
+                </label><br>
+                <input type="submit" ng-click="meep.change_info()" class="btn btn-success">
+              </fieldset>
+            </form>
+          </div>
+
+          <div style = 'display: inline-block; vertical-align: top; margin-left: 100px;'>
+            <form name="formPass">
+              <fieldset>
+                <legend>Change Password</legend>
+                  <p style="color: red">{{ passError }}</p>
+                <label>Password:<br>
+                    <div ng-messages="formPass.edit.password.$error">
+                        <div ng-message="required" style="color: red">This Field is Required</div>
+                    </div>
+                  <input type="text" ng-model="edit.password" required>
+                </label><br>
+                <label>Password Conformation:<br>
+                  <input type="text" ng-model="edit.pass_conf">
+                </label><br>
+                <input type="submit" ng-click="meep.pass_word()" style = 'float: right;' class="btn btn-success">
+              </fieldset>
+            </form>
+          </div>
+    </div>
+        <div style="margin-top: 5%;">
+            <form>
+              <fieldset>
+                <legend>Edit Description</legend>
+                <label><br>
+                    <textarea type="text" ng-model="edit.descript" rows="5" cols="55""></textarea>
+                </label><br>
+                <input type="submit" ng-click="meep.description()" style = 'margin-left: 44%;' class="btn btn-success">
+              </fieldset>
+            </form>
+        </div>
+</div>

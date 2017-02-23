@@ -1,0 +1,38 @@
+<div class="container">
+<div class="page-header" style="margin: 70px 0 20px;">
+    <h1>Register:</h1>
+  <p ng-repeat='error in regErrors'>{{error.message}}</p>
+  <form name="formData">
+		<fieldset>
+            <label>Username<br>
+                 <div ng-messages="formData.user.username.$error">
+                     <div ng-message="required" style="color: red">This Field is Required</div>
+                </div>
+				<input type="text" ng-model="user.username" required>
+			</label><br>
+			<label>Email:<br>
+                <div ng-messages="formData.user.email.$error" >
+                    <div ng-message="required" style="color: red">This Field is Required</div>
+                    <div ng-message="mail" style="color: red">Your Email Address is Invalid</div>
+                </div>
+				<input type="email" ng-model="user.email" required>
+			</label><br>
+
+      <label>Password:<br>
+           <div ng-messages="dataForm.user.password.$error">
+               <div ng-message="required" style="color: red">This Field is Required</div>
+           </div>
+        <input type="password" ng-model="user.password" required>
+      </label><br>
+      <label>Password Conformation:<br>
+        <input type="password" ng-model="user.password_confirm">
+      </label><br>
+            <p style="color: red">{{ passError }}</p>
+      <input class = "btn btn-info" type="submit" ng-click="meep.add_user()">
+		</fieldset>
+	</form>
+    <div style="margin-top: 2%;">
+      <a ng-click="start_page()">Already have an account? Login.</a>
+    </div>
+</div>
+
